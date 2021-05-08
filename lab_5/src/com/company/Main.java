@@ -2,8 +2,6 @@ package com.company;
 import java.io.*;
 import java.util.*;
 
-import static java.lang.StrictMath.E;
-
 
 public class Main {
     //БЛОК ОПИСАНИЯ ХРАНИМЫХ В КОЛЛЕКЦИИ КЛАССОВ(начало)
@@ -49,7 +47,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //коллекция
-        TreeSet<String> collection = new TreeSet<String>();
+        TreeSet<String> collection = new TreeSet<String>();//данные типа string сортируются в алфавитном порядке
+
         /*// БЛОК ЗАПИСИ ФАЙЛА ИЗ КОНСОЛИ И ВЫВОД ДАННЫХ ИЗ ФАЙЛА В КОНСОЛЬ В ВИДЕ КОЛЛЕКЦИИ(начало)
 
         //используем запись в csv файл с помощью класса java.io.BufferedWriter
@@ -94,9 +93,10 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             String command = sc.nextLine();
             //счетчик команд()
-            //...
+            //...надо дописать
             // история пользовательского ввода(массив)
-             //...
+            //...надо дописать
+
 
                     switch (command) {
                 case "help":
@@ -107,7 +107,8 @@ public class Main {
                     }
                     break;
                 case "info"://вывод инфо о коллекции
-                    System.out.print(collection);
+                    System.out.printf("коллекция содержит %d элементов \n", collection.size());//количество элементов в коллекции
+                    System.out.println("коллекция была создана 08.05.2021 в 19:20");
                     break;
                 case "show"://выводит все элементы коллекции
                     System.out.println(collection);
@@ -203,7 +204,10 @@ public class Main {
 
     }
 
+
+
 //конец главного метода
 }
+
 
 
