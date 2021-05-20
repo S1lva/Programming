@@ -4,6 +4,7 @@ import java.util.*;
 
 
 public class Main {
+
     //БЛОК ОПИСАНИЯ ХРАНИМЫХ В КОЛЛЕКЦИИ КЛАССОВ(начало)
     public class StudyGroup {
         private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
@@ -46,9 +47,12 @@ public class Main {
     //БЛОК ОПИСАНИЯ ХРАНИМЫХ В КОЛЛЕКЦИИ КЛАССОВ(конец)
 
     public static void main(String[] args) throws IOException {
+         class commands{
+
+        }
         //коллекция
         TreeSet<String> collection = new TreeSet<String>();//данные типа string сортируются в алфавитном порядке
-
+        //тут самое важное переопределить все элементы как элемнты класса StudyGroup!!!
         /*// БЛОК ЗАПИСИ ФАЙЛА ИЗ КОНСОЛИ И ВЫВОД ДАННЫХ ИЗ ФАЙЛА В КОНСОЛЬ В ВИДЕ КОЛЛЕКЦИИ(начало)
 
         //используем запись в csv файл с помощью класса java.io.BufferedWriter
@@ -98,7 +102,7 @@ public class Main {
             //...надо дописать
 
 
-                    switch (command) {
+            switch (command) {
                 case "help":
                     BufferedReader br = new BufferedReader(new FileReader("help.txt"));
                     String line = null;
@@ -108,7 +112,7 @@ public class Main {
                     break;
                 case "info"://вывод инфо о коллекции
                     System.out.printf("коллекция содержит %d элементов \n", collection.size());//количество элементов в коллекции
-                    System.out.println("коллекция была создана 08.05.2021 в 19:20");
+                    System.out.println("коллекция была создана 08.05.2021 в 19:20");//класс date
                     break;
                 case "show"://выводит все элементы коллекции
                     System.out.println(collection);
@@ -128,15 +132,15 @@ public class Main {
                     System.out.print("Введите новый элемент: ");
                     String newelement = sc.nextLine();
                     //...
-                    //тут осталось дописать как выполнить замену элемента по id
+                    //
                     break;
                 case "remove_by_id"://выполняет удаление элемента по id
                     System.out.print("введите id элемента который хотите удалить: ");
-                    int remove = sc.nextInt();
-                    collection.remove(remove);
+                    int objectToRemove = sc.nextInt();
+                    collection.remove(objectToRemove);
                     System.out.println(collection);
                     break;
-                //почему-то не хочет выполняться. Исправить.
+                //...
                 case "clear"://полная очистка коллекции
                     collection.clear();
                     System.out.println(collection);
@@ -157,42 +161,44 @@ public class Main {
                 catch(IOException ex){
 
                     System.out.println(ex.getMessage());
-                }*/
+                }
+                преглашает ввести строку, разделенную запятыми и потом после команды save сохраняет колекцию в файл */
                     break;
-                case "execute_script"://выполнить указанный скрипт
+                case "execute_script"://выполнить указанный скрипт. По сути это тоже самое что и показать команду help
                     System.out.print("введите название исполняемого файла: ");
                     String script = sc.nextLine();
                     break;
                 case "exit"://здесь он должен выходить из цикла, но у меня почеему-то не хочет
+                    System.exit(0);
                     break;
 
-            case "add_if_min"://добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции
-                System.out.print("введите новый элемент коллекции: ");
-                String min_el = sc.nextLine();
+                case "add_if_min"://добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции
+                    System.out.print("введите новый элемент коллекции: ");
+                    String min_el = sc.nextLine();
 
 //                if (min_el < collection.first())//
 //                    collection.add(min_el);
 //                else
 //                    System.out.print("введенный элемент больше наименьшего!");
 
-                break;
-            case "remove_lower"://удалить из коллекции все элементы, меньшие, чем заданный
-                System.out.print("введите элемент: ");
-                String lower = sc.nextLine();
-                break;
-            case "history":
-                System.out.print("vsdvsdfs");
-                break;
-            case "filter_less_than_students_count"://вывести элементы, значение поля studentsCount которых меньше заданного
-                System.out.print("vsdvsdfs");
-                break;
-            case "filter_greater_than_expelled_students"://вывести элементы, значение поля expelledStudents которых больше заданного
-                System.out.print("vsdvsdfs");
-                break;
-            case "print_descending"://вывод коллекцию задом наперед
-                NavigableSet<String> navSet = collection.descendingSet();
-                System.out.println(navSet);
-                break;
+                    break;
+                case "remove_lower"://удалить из коллекции все элементы, меньшие, чем заданный
+                    System.out.print("введите элемент: ");
+                    String lower = sc.nextLine();
+                    break;
+                case "history":
+                    System.out.print("vsdvsdfs");//создать массив с командами, прописать логику поведения .
+                    break;
+                case "filter_less_than_students_count"://вывести элементы, значение поля studentsCount которых меньше заданного
+                    System.out.print("vsdvsdfs");//тут поле объекта класса стади груп сравнивается с интом(метод equals)
+                    break;
+                case "filter_greater_than_expelled_students"://вывести элементы, значение поля expelledStudents которых больше заданного.
+                    System.out.print("vsdvsdfs"); // тут инт сравнивается с итом . можно через if
+                    break;
+                case "print_descending"://вывод коллекцию задом наперед
+                    NavigableSet<String> navSet = collection.descendingSet();
+                    System.out.println(navSet);
+                    break;
             }
         }
 
@@ -202,14 +208,11 @@ public class Main {
         // БЛОК КОМАНД(конец)
 
 
+
     }
 
 
 
 //конец главного метода
 }
-
-
-
-
 
